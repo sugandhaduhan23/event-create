@@ -12,6 +12,7 @@ import { addFields, deleteField, getFields } from "../services/fields.service";
 import { CONSTANTS } from "../constants";
 import Alert, { AlertProps } from "../components/Alert";
 import UserChart from "./UserChart";
+import { addUsersToDB } from "../utils/loadData";
 
 
 const initialColumns: Column<User>[] = [
@@ -47,7 +48,11 @@ export default function Dashboard() {
     async function getUserData() {
       setLoading(true);
       try {
-        const data = await getUsers();
+        let data = await getUsers();
+        //Line 54 & 55 are not related to the implementation
+        //This function has been implemented to load the initial data into indexedDB
+        if(!data.length)
+          data = await addUsersToDB();
         userCtx.saveUsers(data);
         setLoading(false);
       } catch (err) {

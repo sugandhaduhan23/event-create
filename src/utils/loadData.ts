@@ -1,4 +1,5 @@
 import { CONSTANTS } from "../constants";
+import { getUsers } from "../services/user.service";
 import initDB from "./indexedDB";
 
 const userData = [
@@ -15,7 +16,11 @@ const userData = [
   { name: "Liam Thomas", email: "liam.thomas@gmail.com", age: "22" },
   { name: "Ava Martinez", email: "ava.martinez@hotmail.com", age: "28" },
   { name: "Mason Garcia", email: "mason.garcia@outlook.com", age: "37" },
-  { name: "Isabella Rodriguez", email: "isabella.rodriguez@gmail.com", age: "48"},
+  {
+    name: "Isabella Rodriguez",
+    email: "isabella.rodriguez@gmail.com",
+    age: "48",
+  },
   { name: "Ethan Harris", email: "ethan.harris@yahoo.com", age: "25" },
   { name: "Charlotte Clark", email: "charlotte.clark@hotmail.com", age: "31" },
   { name: "Logan Lewis", email: "logan.lewis@outlook.com", age: "23" },
@@ -57,17 +62,20 @@ const userData = [
 ];
 
 export const addUsersToDB = async () => {
+  try {
     const db = await initDB();
-    const tx = db.transaction(CONSTANTS.USER_STORE, 'readwrite');
+    const tx = db.transaction(CONSTANTS.USER_STORE, "readwrite");
     const store = tx.objectStore(CONSTANTS.USER_STORE);
-    userData.forEach(user => store.put(user));
-    return new Promise<void>((resolve, reject) => {
-      tx.oncomplete = () => {
-        resolve();
-      };
-      tx.onerror = (error) => {
-        reject(error);
-      };
+    userData.forEach((user) => store.put(user));
+
+    await new Promise<void>((resolve, reject) => {
+      tx.oncomplete = () => resolve();
+      tx.onerror = (error) => reject(error);
     });
-  };
-  
+
+    const allUsers = await getUsers();
+    return allUsers;
+  } catch (error) {
+    throw new Error("Error adding users and fetching data: " + error.message);
+  }
+};
