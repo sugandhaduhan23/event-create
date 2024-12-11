@@ -1,0 +1,72 @@
+.buttonBase {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.primaryButton {
+  background-color: #007fff;
+  color: white;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.primaryButton:hover {
+  background-color: #005bb5;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2), 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.primaryButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(98, 0, 238, 0.4);
+}
+
+.darkMode.primaryButton {
+  background-color: #212121;
+  color: white;
+  border: 1px solid #616161;
+}
+
+.darkMode.primaryButton:hover {
+  background-color: #424242;
+}
+
+.darkMode.primaryButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+.textButton {
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  background-color: transparent;
+  color: #007fff;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+}
+
+.textButton:hover {
+  color: #005bb5;
+}
+
+.textButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(98, 0, 238, 0.4);
+}
+
+.darkMode.textButton,
+.darkMode.textButton:hover {
+  color: white;
+}
+
+.darkMode.textButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+}

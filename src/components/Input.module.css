@@ -1,0 +1,43 @@
+.label {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.darkMode .label {
+  color: #ffffff;
+}
+
+.input {
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  color: #111827;
+  font-size: 0.875rem;
+  border-radius: 0.375rem;
+  padding: 0.625rem 1rem;
+  width: 100%;
+  display: block;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.5);
+}
+
+.darkMode .input {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #ffffff;
+}
+
+.darkMode .input::placeholder {
+  color: #9ca3af;
+}
+
+.darkMode .input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.5);
+}

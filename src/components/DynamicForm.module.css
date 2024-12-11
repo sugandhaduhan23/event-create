@@ -1,0 +1,45 @@
+.form_actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.dynamicFields {
+  border: 1px solid #8080803d;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  margin-top: 1rem;
+}
+
+.input_wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.deleteBtn {
+  position: absolute;
+  right: 0px;
+  top: 0;
+  transform: translateY(82%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.darkMode .dynamicFields {
+  border: 1px solid #4b5563;
+  background-color: transparent;
+  color: #d1d5db;
+}
+
+.dynamicFields_button {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.darkMode .dynamicFields_button {
+  color: #d1d5db;
+}
